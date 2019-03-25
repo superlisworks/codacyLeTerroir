@@ -1,0 +1,19 @@
+@media all and (max-width:480px) and (orientation:landscape){
+
+  h1.logo{
+    /*width: 66vw;*/
+    /*height: 22vh;*/
+    /*margin-top: 3vh;*/
+  }
+  nav ul {
+    /*width: 50vw;*/
+    /*margin-top: 13vh;*/
+  }
+  nav ul li {
+    /*width: 22vw;*/
+  }
+
+  header{
+    /*margin-top:10vw;*/
+  }
+}

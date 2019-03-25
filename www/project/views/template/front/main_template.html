@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="{{ lang }}">
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/assets/css/home/main.css" />
+		<link rel="stylesheet" href="/assets/css/le-terroir.css" />
+		<noscript><link rel="stylesheet" href="/assets/css/home/noscript.css" /></noscript>
+		<meta name="theme-color" content="#fede02">
+	</head>
+	<body>
+		{{ content }}
+		<script>
+			window.onload = function() { document.body.classList.remove('is-preload'); }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+	</body>
+<!--
+	page based on Aerial by HTML5 UP
+-->
+</html>

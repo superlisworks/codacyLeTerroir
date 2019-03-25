@@ -1,0 +1,18 @@
+@media all and (max-width: 992px) and (orientation:landscape){
+
+  h1.logo{
+    height: 30vh;
+    margin-top: 10vh;
+  }
+  nav ul {
+    /*width: 50vw;*/
+    margin-top: 10vh;
+  }
+  nav ul li {
+    /*width: 22vw;*/
+  }
+
+  header{
+    /*margin-top:10vw;*/
+  }
+}

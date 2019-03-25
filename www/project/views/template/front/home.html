@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="{{ lang }}">
+  <head>
+    <title>Le terroir : {{ title }}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <!-- <link rel="stylesheet" href="/assets/front/css/home/main.css" /> -->
+    <link rel="stylesheet" href="/assets/front/css/le-terroir.css" />
+    <link rel="stylesheet" href="/assets/front/css/animations.css" />
+    <noscript><link rel="stylesheet" href="/assets/front/css/home/noscript.css" /></noscript>
+    <meta name="theme-color" content="#fede02">
+  </head>
+  <body class="is-preload">
+      <div id="bg" class="fullScreen wrapper"></div>
+      <div id="overlay" class="fullScreen wrapper"></div>
+      <div id="main" class="fullScreen transition">
+
+        <!-- Header -->
+          <header> <!-- id="header" --> 
+            <h1 class="logo transition">Le terroir</h1>
+            <p class="transition wrapper">{{ title }}</p>
+            <nav class="wrapper">
+              <ul class="transition">
+                <li class="icon logo transition">&nbsp;</li>
+                <li class="icon where"><a class="removeLink" href="{{ url1 }}">{{ text1 }}</a></li>
+                <li class="icon products"><a class="removeLink" href="{{ url2 }}">{{ text2 }}</a></li>
+                <li class="icon user"><a class="removeLink" href="{{ url3 }}">{{ text3 }}</a></li>
+                <li class="icon social"><a class="removeLink" href="{{ url4 }}">{{ text4 }}</a></li>
+                <li class="icon cart"><a class="removeLink" href="{{ url5 }}">{{ text5 }}</a></li>
+              </ul>
+            </nav>
+          </header>
+
+          <div class="sectionContainer">
+            <section id="where" class="transition delayed">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar ligula ac porta placerat. Phasellus hendrerit turpis ac quam efficitur, pulvinar pharetra ex facilisis. Morbi scelerisque egestas velit, in laoreet ex posuere eu. Donec accumsan mauris vel ante vulputate hendrerit. Phasellus tincidunt lacus nisl, sit amet auctor felis porta consectetur. Vivamus congue augue a ipsum tristique hendrerit. Phasellus commodo aliquam enim vel efficitur.</p>
+
+              <p>Cras tempor sapien non ante tincidunt volutpat. Morbi sed aliquam libero, a ullamcorper justo. Aliquam lorem urna, mattis id elementum ac, porttitor hendrerit dui. Nunc cursus nisi at pulvinar aliquam. Cras quis tellus ornare, tempus ligula et, facilisis urna. Pellentesque in cursus leo, ac venenatis tellus. Quisque tincidunt odio id ex pretium, a consequat arcu convallis. Sed tristique nulla non vehicula luctus. Ut sed fringilla tortor. Nullam in lectus sed magna convallis aliquet condimentum a magna. Aenean id justo vel metus hendrerit vulputate non id tortor. Qu</p>
+
+              <p>Nullam nec urna et diam gravida gravida a quis purus. Integer bibendum eros quis leo lacinia dignissim. Aenean a dictum massa. Cras nec augue tempor, sagittis felis vitae, malesuada metus. Quisque vehicula scelerisque dignissim. Vestibulum semper a dolor eget tincidunt. Nunc euismod dui ultricies tellus tincidunt, sit amet scelerisque ante sollicitudin. Ut ac massa tincidunt, ultrices sapien at, suscipit erat. Nullam non tincidunt diam, et gravida lorem. Nunc pellentesque aliquam sapien sit amet condimentum. Nam et sapien diam. Vestibulum elementum nisl non risus ul</p>
+
+              <p>Cras mollis interdum nisl in viverra. Suspendisse eu porttitor lorem. Nulla in ultricies tortor. In condimentum, dolor nec elementum tincidunt, ipsum elit tempus tellus, ut pharetra leo mauris nec risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin a nisl ut est fringilla laoreet vitae eu odio. Etiam ut massa sit amet nisi auctor commodo. Morbi auctor neque a felis ultricies porttitor.</p>
+
+              <p>Curabitur suscipit id felis vestibulum porta. Cras vitae eleifend felis. Cras ut tristique augue, nec sagittis leo. Integer tincidunt, nunc eget mollis tincidunt, enim mi gravida magna, eget tempor lacus turpis nec est. Quisque sed interdum ligula. Aenean tristique turpis hendrerit, viverra metus gravida, varius tellus. Quisque velit ligula, dignissim a leo et, pellentesque luctus tortor. Nulla facilisi. Sed volutpat lobortis ligula, ut commodo magna varius egestas. Nulla mi enim, laoreet ac dolor eu, posuere ornare risus.
+                </p>
+            </section>
+            <section id="products" class="transition">
+
+            </section>
+            <section id="user" class="transition">
+
+            </section>
+            <section id="social" class="transition">
+
+            </section>
+          </div>
+
+        <!-- Footer -->
+          <footer id="footer">
+            <small><span class="copyright">&copy; 2019 - le terroir | <a href="{{ urlMentionsLegales }}">{{ mentionsLegales }} | <a href="{{ urlRGPD }}">{{ rgpd }}</span></small>
+          </footer>
+
+      </div>
+    </div>
+
+    <script src="/assets/front/js/frugal.js"></script>
+    <script src="/assets/front/js/GraphicalEl.js"></script>
+    <script src="/assets/front/js/IconButton.js"></script>
+    <script>
+      var actual = "",
+          next   = "",
+          logo   = document.querySelector(".logo");
+
+      window.onload = function() { 
+        document.body.classList.remove('is-preload');
+        var list = document.getElementsByClassName("removeLink");
+        console.log(list);
+        for (var i = list.length - 1; i >= 0; i--) {
+          list[i].href="#";
+          new IconButton("."+list[i].offsetParent.className.split(" ")[1]);
+        }
+
+      }
+      window.ontouchmove = function() { return false; }
+      window.onorientationchange = function() { document.body.scrollTop = 0; }
+
+      function maximize(obj){
+        next = obj.className.split(" ")[1];
+        if (actual == ""){
+          logo.classList.add("end");
+          document.querySelector("header p").classList.add("end");
+          logo.addEventListener("transitionend", endShowTransition);
+
+          document.querySelector("li.logo").classList.add("shown");
+          document.querySelector("nav ul").classList.add("shown");
+        }
+      }
+
+      function endShowTransition(event) {
+        logo.removeEventListener("transitionend", endShowTransition);
+        logo.innerHTML="";
+        logo = null;
+
+        //remove unused tags
+        var parent = document.querySelector("header");
+        var child = document.querySelector("h1");
+        parent.removeChild(child);
+
+        var child = document.querySelector("p.end");
+        parent.removeChild(child);
+
+        var cible = document.getElementById(next);
+        // console.log("document.getElementById('"+next+"')");
+        cible.style.display="block";
+        cible.classList.add("selected");
+        document.querySelector("#header ."+next+' a').classList.add("selected");
+        actual=next;
+        next="";
+      }
+
+
+    </script>
+  </body>
+<!--
+  page based on Aerial by HTML5 UP
+-->
+</html>
+
+
+<!-- 
+todo : make pages for no script broswer
+make special css for no script browser with no style
+ -->

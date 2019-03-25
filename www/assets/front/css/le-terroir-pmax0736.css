@@ -1,0 +1,16 @@
+@media all and (max-width: 736px) and (orientation:portrait){
+  h1.logo{
+    width: 66vw;
+    height: 39.6vh;
+  }
+  nav ul {
+    width: 60vw;
+    margin-top: 13vh;
+  }
+  nav ul li {
+    width: 15vw;
+  }
+  header{
+    margin-top:10vw;
+  }
+}
